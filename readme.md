@@ -31,8 +31,8 @@ nodejs synchronization script for screeps.com game
 
 ### testing
 
-|OS      |result   |comment      |
-----------------------------------
-|linux   |pass     |             |
-|windows |         |planned      |
-|mac     |         |             |
+| OS      | result  | comment     |
+|---------|---------|-------------|
+| linux   | pass    |             |
+| windows |         | planned     |
+| mac     |         |             |
