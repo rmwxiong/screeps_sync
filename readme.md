@@ -5,9 +5,11 @@ nodejs synchronization script for screeps.com game
 
 ### run
 
-1. `node sync.js`
+1. create scripts folder(or change location in script)
 
-2. copy output code to browser console or use extensions like chrome cjs
+2. run
+
+3. copy output code to browser console or use extensions like chrome cjs
 
 ### default behavior
 
