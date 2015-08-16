@@ -29,6 +29,8 @@ nodejs synchronization script for screeps.com game
 
 `var replaceRegexp = /\..+$/; // strip extensions from modules names`
 
+`var showDebug = true;`
+
 ### testing
 
 | OS      | result  | comment     |

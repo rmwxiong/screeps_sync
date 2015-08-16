@@ -501,7 +501,8 @@ var rl = readline.createInterface({
 });
 
 // fixme: extra space after prompt
-rl.setPrompt("\x1b[0;34m\r#");
+//rl.setPrompt("\x1b[0;34m\r#");
+rl.setPrompt("#");
 rl.prompt();
 rl.on('line', function(cmd){
 	if(!cmd)
