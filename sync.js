@@ -11,6 +11,7 @@ var watchDir = 'scripts'; // dir with your scripts
 var includeRegexp = /\.js$/; // only *.js
 var excludeRegexp = /^sync\d*\.js$/; // exclude same name(sync.js)
 var replaceRegexp = /\..+$/; // strip extensions from modules names
+var showDebug = true;
 
 // keys valid only for localhost.doomcalc.com (A 127.0.0.1)
 // Issued free by WoSign
@@ -537,6 +538,8 @@ var colors = {
 function log(text, color){
 	if(!color)
 		color = 1;
+	if(showDebug && color === DEBUG)
+		return false;
 	console.log(`\x1b[0;${colors[color]}m${text}\x1b[0;34m`);
 }
 
