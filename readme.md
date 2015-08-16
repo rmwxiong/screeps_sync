@@ -25,3 +25,9 @@ node sync.js
 `var excludeRegexp = /^sync\d*\.js$/; // exclude same name(sync.js)`
 
 `var replaceRegexp = /\..+$/; // strip extensions from modules names`
+
+### testing
+
+linux **yes**
+windows **not tested, but planned**
+mac **not tested**
