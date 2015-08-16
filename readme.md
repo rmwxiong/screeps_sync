@@ -28,7 +28,7 @@ node sync.js
 
 ### testing
 
-* linux **yes**
+* linux **yes, pass**
 
 * windows **not tested, but planned**
 
