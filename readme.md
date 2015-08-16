@@ -36,3 +36,11 @@ nodejs synchronization script for screeps.com game
 | linux   | pass    |             |
 | windows |         | planned     |
 | mac     |         |             |
+
+### planned features
+
+* command to console from script
+* memory switches in panel
+* test stand alone creep mouse control(move) if supported in ai memory switch
+* debug overlay in browser (controlled from memory)
+
