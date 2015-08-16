@@ -9,8 +9,8 @@ node sync.js
 
 ### default behavior
 
-sync all *.js files at same folder exclude sync\d*\.js
-using WoSign certificate and my 127.0.0.1 aliased name to supress mixed content security exception
+* sync all `*.js` files at same folder exclude `sync\d*\.js`
+* using WoSign certificate and my 127.0.0.1 aliased name to supress mixed content security exception
 
 ### or change veriables at begin of script
 
