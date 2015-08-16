@@ -12,7 +12,7 @@ nodejs synchronization script for screeps.com game
 ### default behavior
 
 * **existing modules be overwrited!**
-* sync all `*.js` files at same folder exclude `sync\d*\.js`
+* sync all `*.js` files in scripts exclude `sync\d*\.js`
 * using WoSign certificate and my 127.0.0.1 aliased name to supress mixed content security exception
 
 ### or change veriables at begin of script
@@ -21,7 +21,7 @@ nodejs synchronization script for screeps.com game
 
 `var host = 'localhost.doomcalc.com'; // A 127.0.0.1`
 
-`var watchDir = '.'; // dir with your scripts`
+`var watchDir = 'scripts'; // dir with your scripts`
 
 `var includeRegexp = /\.js$/; // only *.js`
 
