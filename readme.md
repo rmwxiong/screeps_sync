@@ -9,6 +9,7 @@ node sync.js
 
 ### default behavior
 
+* **existing modules be overwrited!**
 * sync all `*.js` files at same folder exclude `sync\d*\.js`
 * using WoSign certificate and my 127.0.0.1 aliased name to supress mixed content security exception
 
@@ -29,7 +30,5 @@ node sync.js
 ### testing
 
 * linux **yes, pass**
-
 * windows **not tested, but planned**
-
 * mac **not tested**
