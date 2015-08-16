@@ -28,6 +28,8 @@ node sync.js
 
 ### testing
 
-linux **yes**
-windows **not tested, but planned**
-mac **not tested**
+* linux **yes**
+
+* windows **not tested, but planned**
+
+* mac **not tested**
