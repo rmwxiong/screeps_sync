@@ -223,7 +223,7 @@ function bootstrap(){
 			this.menu.className = "sync_js_menu";
 			this.addAction(this.menu, 'close', function(){this.menu.classList.add('hidden');}, 'close menu', true);
 			this.addAction(this.menu, 'reload menu', this.reload, 'reload sync js bootstrap', true);
-			this.addAction(this.menu, 'test', this.test, 'test', true);
+			//this.addAction(this.menu, 'test', this.test, 'test', true);
 			this.infoEl = document.createElement('pre');
 			this.infoEl.className = 'syncjs-info';
 			this.menu.appendChild( this.infoEl );
