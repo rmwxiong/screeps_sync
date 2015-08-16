@@ -7,9 +7,12 @@ nodejs synchronization script for screeps.com game
 
 node sync.js
 
-### customization
+### default behavior
 
-### change veriables at begin of script
+sync all *.js files at same folder exclude sync\d*\.js
+using WoSign certificate and my 127.0.0.1 aliased name to supress mixed content security exception
+
+### or change veriables at begin of script
 
 `var port = 9090; // port`
 
