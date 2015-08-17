@@ -231,8 +231,9 @@ function bootstrap(){
 			this.menu.appendChild( this.infoEl );
 		},
 		menuClick: function(){
+			this.injectMenu();
 			if(!this.menu)
-				this.injectMenu();
+				return;
 			this.menu.classList.remove('hidden');
 			return false;
 		},
@@ -364,7 +365,7 @@ function bootstrap(){
 			this.info = {serverId: '', cycles: 0, updates: 0,};
 			this.injectCSS();
 			this.injectMenuItem();
-			this.menuClick();
+			this.injectMenu();
 			console.log('sync.js initialized');
 			this.log('initialized');
 			this.loopId = setInterval(this.loop.bind(this), 1000);
