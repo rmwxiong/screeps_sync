@@ -7,6 +7,7 @@
 "use strict";
 var port = 9090; // port
 var host = 'localhost.doomcalc.com'; // A 127.0.0.1
+// if watch dir does not exists, it set to '.'
 var watchDir = 'scripts'; // dir with your scripts
 var includeRegexp = /\.js$/; // only *.js
 var excludeRegexp = /^sync\d*\.js$/; // exclude same name(sync.js)
@@ -450,6 +451,8 @@ var versions = {};
 var modules = {};
 var serverId = Math.random()*2147483647 >> 0;
 
+if(!fs.existsSync(watchDir))
+	watchDir = '.';
 fs.watch(watchDir, function(event, file){
 	//if(event === 'change')
 	read(watchDir, file);

@@ -14,7 +14,7 @@ nodejs synchronization script for screeps.com game
 ### default behavior
 
 * **existing modules be overwrited!**
-* sync all `*.js` files in `scripts` folder exclude `sync\d*\.js`
+* sync all `*.js` files in `scripts`(or own folder if scripts does not exists) folder exclude `sync\d*\.js`
 * using WoSign certificate and my 127.0.0.1 aliased name to supress mixed content security exception
 
 ### or change veriables at begin of script
