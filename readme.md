@@ -45,6 +45,6 @@ nodejs synchronization script for screeps.com game
 
 * command to console from script
 * memory switches in panel
-* test stand alone creep mouse control(move) if supported in ai memory switch
-* debug overlay in browser (controlled from memory)
+* test control(move, simple commands) standalone creep by mouse if supported in ai memory switch (add interface to set targets in memory)
+* debug game overlay in browser (controlled from memory)
 
