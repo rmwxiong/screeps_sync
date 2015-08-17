@@ -226,6 +226,8 @@ function bootstrap(){
 			this.menu.className = "sync_js_menu";
 			this.addAction(this.menu, 'close', function(){this.menu.classList.add('hidden');}, 'close menu', true);
 			this.addAction(this.menu, 'reload menu', this.reload, 'reload sync js bootstrap', true);
+			this.addAction(this.menu, 'enable sync', function(){this.info.sync = true;}, '', true);
+			this.addAction(this.menu, 'disable sync', function(){this.info.sync = false;}, '', true);
 			//this.addAction(this.menu, 'test', this.test, 'test', true);
 			this.infoEl = document.createElement('pre');
 			this.infoEl.className = 'syncjs-info';
@@ -342,6 +344,11 @@ function bootstrap(){
 						var req = {mode: 'read', modules: modules};
 						this.request(req);
 					}
+					for(var i=0; i<data.commands.length; ++i){
+						var t = data.commands[i];
+						console.log(t);
+						this.runCommand( t );
+					}
 					break;
 				case 'read':
 					var bc = angular.element(document.getElementsByClassName('branch-controls')[0]);
@@ -379,7 +386,8 @@ function bootstrap(){
 			++this.info.cycles;
 			if(!document.querySelector('ul.navbar-nav > .syncjs'))
 				this.injectMenuItem();
-			this.sync();
+			if(this.info,sync)
+				this.sync();
 			this.updateInfo();
 		},
 		test: function(){
@@ -387,7 +395,7 @@ function bootstrap(){
 		init: function(){
 			this.versions = {};
 			this.serverId = 0;
-			this.info = {serverId: '', cycles: 0, updates: 0,};
+			this.info = {sync: false, serverId: '', cycles: 0, updates: 0,};
 			this.injectCSS();
 			this.injectMenuItem();
 			this.injectMenu();
@@ -453,6 +461,8 @@ function comm(data){
 				var t = data.messages[i];
 				log( (t.out ? "> " : "< ") + t.text.replace(/<br\s*\/?>/gi, "\n").replace(/\n$/,''), INFO);
 			}
+			a.commands = commands;
+			commands = [];
 			break;
 		case 'read':
 			a.mode = 'read';
@@ -518,6 +528,7 @@ server.listen( port );
 // ################################################################################
 // console
 
+var commands = [];
 var readline = require('readline');
 var cmds = ['/quit', '/exit', '/readall'];
 var rl = readline.createInterface({
@@ -546,7 +557,11 @@ rl.on('line', function(cmd){
 			readAll(watchDir);
 			break;
 		default:
-			log(`unknown command '${a[0]}'`, ERROR);
+			if(cmd.charAt(0) === '/'){
+				log(`unknown command '${a[0]}'`, ERROR);
+				break;
+			}
+			commands.push(cmd);
 	}
 	rl.prompt();
 });

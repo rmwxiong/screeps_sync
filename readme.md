@@ -11,6 +11,10 @@ nodejs synchronization script for screeps.com game
 
 3. copy output code to browser console or use extensions like chrome cjs
 
+4. click *SYNC MENU* in top menu
+
+5. click *enable sync* in new left menu
+
 ### default behavior
 
 * **existing modules be overwrited!**
