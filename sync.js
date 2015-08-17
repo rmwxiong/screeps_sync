@@ -257,9 +257,24 @@ function bootstrap(){
 			this.setCommand(cmd);
 			angular.element(document.getElementsByClassName('console-input')[0]).scope().Console.sendCommand();
 		},
+		getConsole: function(){
+			// many if to prevent crash on slow loading
+			var el = angular.element(document.querySelector('.console-message'));
+			if(!el)
+				return null;
+			var scope = el.scope();
+			if(!scope)
+				return null;
+			var console = scope.Console;
+			if(!console)
+				return null;
+			return console;
+		},
 		getMessages: function(){
-			var c = angular.element(document.querySelector('.console-message')).scope().Console;
-			var m = c.getMessages();
+			var console = this.getConsole();
+			if(!console)
+				return false;
+			var m = console.getMessages();
 			var pos = m.indexOf(this.lastMessage);
 			this.lastMessage = m[m.length-1];
 			if(pos !== -1)
@@ -268,8 +283,10 @@ function bootstrap(){
 				return m;
 		},
 		log: function(text){
-			var c = angular.element(document.querySelector('.console-message')).scope().Console;
-			var m = c.getMessages(text);
+			var console = this.getConsole();
+			if(!console)
+				return false;
+			var m = console.getMessages(text);
 			m.push({out: true, text: 'sync.js: '+text});
 		},
 		fooModule: function(){
@@ -326,7 +343,12 @@ function bootstrap(){
 					}
 					break;
 				case 'read':
-					var modules = angular.element(document.getElementsByClassName('branch-controls')[0]).scope().Script.modules;
+					var bc = angular.element(document.getElementsByClassName('branch-controls')[0]);
+					var scope = bc.scope();
+					if(!scope) return false;
+					var script = scope.Script;
+					if(!script) return false;
+					var modules = script.modules;
 					var updated = 0;
 					for(var i in data.modules){
 						if(data.versions[i] === this.versions[i])
@@ -371,7 +393,7 @@ function bootstrap(){
 			this.loopId = setInterval(this.loop.bind(this), 1000);
 		},
 	};
-	sync.init();
+	setTimeout(function(){sync.init();}, 100);
 }
 
 // ################################################################################
