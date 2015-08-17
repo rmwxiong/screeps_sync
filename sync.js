@@ -215,6 +215,7 @@ function bootstrap(){
 		injectMenuItem: function(){
 			document.querySelector('ul.navbar-nav')
 				.appendChild( this.menu_li = document.createElement('li') );
+			this.menu_li.className = 'syncjs';
 			this.addAction(this.menu_li, 'sync menu', this.menuClick);
 		},
 		injectMenu: function(){
@@ -376,6 +377,8 @@ function bootstrap(){
 		},
 		loop: function(){
 			++this.info.cycles;
+			if(!document.querySelector('ul.navbar-nav > .syncjs'))
+				this.injectMenuItem();
 			this.sync();
 			this.updateInfo();
 		},
