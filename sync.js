@@ -171,7 +171,7 @@ var helpString3 = `<!DOCTYPE html>
 
 // style.css
 var style_css = `
-div.sync_js_menu {
+div.syncjs-menu {
 	float: left;
 	background-color: #111;
 	color: #fff;
@@ -223,7 +223,7 @@ function bootstrap(){
 			if(!container)
 				return false;
 			container.appendChild( this.menu = document.createElement('div') );
-			this.menu.className = "sync_js_menu";
+			this.menu.className = "syncjs-menu";
 			this.addAction(this.menu, 'close', function(){this.menu.classList.add('hidden');}, 'close menu', true);
 			this.addAction(this.menu, 'reload menu', this.reload, 'reload sync js bootstrap', true);
 			this.addAction(this.menu, 'enable sync', function(){this.info.sync = true;}, '', true);
@@ -386,7 +386,7 @@ function bootstrap(){
 			++this.info.cycles;
 			if(!document.querySelector('ul.navbar-nav > .syncjs'))
 				this.injectMenuItem();
-			if(this.info,sync)
+			if(this.info.sync)
 				this.sync();
 			this.updateInfo();
 		},
@@ -585,7 +585,7 @@ function log(text, color){
 		color = 1;
 	if(showDebug && color === DEBUG)
 		return false;
-	console.log(`\x1b[0;${colors[color]}m${text}\x1b[0;34m`);
+	console.log(`\x1b[0;${colors[color]}m${text}\x1b[0;36;1m`);
 }
 
 log(helpString0);
