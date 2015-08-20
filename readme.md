@@ -8,8 +8,8 @@
          |  /  |               |  \  |             
           \___/                 \___/              
 
-REPOSITORY IT DON'T WANT YOU READ
-=================================
+REPOSITORY IT DON'T WANT YOU READ (c) m-r. Yoda
+===============================================
 
 screeps sync
 ===
