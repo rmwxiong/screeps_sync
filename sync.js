@@ -203,7 +203,7 @@ function bootstrap(){
 			t.href="#";
 			t.onclick = function(e){func.call(that, e, this);return false;};
 			t.textContent = caption;
-			t.title = title;
+			t.title = title || caption;
 		},
 		injectCSS: function(){
 			this.linkCSS = document.createElement('link');
@@ -229,6 +229,8 @@ function bootstrap(){
 			this.addAction(this.menu, 'enable sync', function(){this.info.sync = true;}, '', true);
 			this.addAction(this.menu, 'disable sync', function(){this.info.sync = false;}, '', true);
 			//this.addAction(this.menu, 'test', this.test, 'test', true);
+			this.addAction(this.menu, 'reset selected', this.resetSelected, null, true);
+			this.addAction(this.menu, 'mode666', this.mode666, null, true);
 			this.infoEl = document.createElement('pre');
 			this.infoEl.className = 'syncjs-info';
 			this.menu.appendChild( this.infoEl );
@@ -389,6 +391,22 @@ function bootstrap(){
 			if(this.info.sync)
 				this.sync();
 			this.updateInfo();
+		},
+		getSelected: function(){
+			var el = angular.element(document.querySelector('.object-properties-id')).scope();
+			return el ? el.Room.selectedObject : null;
+		},
+		resetSelected: function(){
+			var sel = this.getSelected();
+			if(!sel)
+				return;
+			this.runCommand('Game.creeps.'+sel.name+'.memory.mode=0;'+'Game.creeps.'+sel.name+'.memory.target=null;'+'Game.creeps.'+sel.name+'.memory.path=null;');
+		},
+		mode666: function(){
+			var sel = this.getSelected();
+			if(!sel)
+				return;
+			this.runCommand('Game.creeps.'+sel.name+'.memory.mode=666;');
 		},
 		test: function(){
 		},
